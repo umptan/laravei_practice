@@ -41,15 +41,36 @@
         <div class="panel-body">
             <table class="table table-striped task-table">
                 <thead>
+                    <td>Date</td>
                     <td>Task</td>
                     <td>&nbsp;</td>
                 </thead>
                 <tbody>
                     @foreach ($tasks as $task)
                         <tr>
+                            {{-- <td><input type="date"></td> --}}
+                        <td>{{ $task->created_at }}</td>
                             <td class="table-text">{{ $task->name }}</td>
-                            <!-- TODO: 削除ボタンを追加する -->
-                            <td></td>
+                            <td>
+                                <div class="pull-right" style="display:inline-flex">
+                                    <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('PUT') }}
+
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fa fa-cog"></i>　Edit
+                                        </button>
+                                    </form>
+                                    <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                        <button class="btn btn-danger" type="submit">
+                                            <i class="fa fa-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                  </tbody>
