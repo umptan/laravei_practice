@@ -32,5 +32,29 @@
         </form>
     </div>
 
-    <!-- TODO: 現在のタスク -->
+@if (count($tasks) > 0)
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        Current Tasks
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-striped task-table">
+                <thead>
+                    <td>Task</td>
+                    <td>&nbsp;</td>
+                </thead>
+                <tbody>
+                    @foreach ($tasks as $task)
+                        <tr>
+                            <td class="table-text">{{ $task->name }}</td>
+                            <!-- TODO: 削除ボタンを追加する -->
+                            <td></td>
+                        </tr>
+                    @endforeach
+                 </tbody>
+            </table>
+        </div>
+    </div>
+@endif
 @endsection
