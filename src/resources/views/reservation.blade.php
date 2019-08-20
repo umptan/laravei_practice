@@ -2,11 +2,11 @@
 @section('content')
 
 <form action="/reservation" method="get">
-    <select name="reservation" size="1">
-        <option>ホテルA</option>
-        <option>ホテルB</option>
-        <option>ホテルC</option>
-        <option>ホテルD</option>
+    <select name="hotel" size="1">
+        <option value="A" selected>ホテルA</option>
+        <option value="B">ホテルB</option>
+        <option value="C">ホテルC</option>
+        <option value="D">ホテルD</option>
     </select>
     <input type="submit" value="予約">
 </form>
@@ -15,6 +15,8 @@
         <thead>
             <td>name</td>
             <td>date</td>
+            <td>satart</td>
+            <td>end</td>
             <td>cancel</td>
         </thead>
         <tbody>

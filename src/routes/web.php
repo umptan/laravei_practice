@@ -11,9 +11,20 @@
 |
 */
 
+use App\reservation;
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('reservation');
 });
 Route::get('/reservation', function () {
     return view('reservation2');
 });
+
+Route::get('reservation2', function () {
+    return view('reservation');
+});
+
+// Route::get('/reservations', function () {
+
+// });
