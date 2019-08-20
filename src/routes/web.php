@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('reservation');
 });
+// Route::post('/reservation', function () {
+//     return view('/');
+// });
