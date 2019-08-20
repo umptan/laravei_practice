@@ -14,6 +14,6 @@
 Route::get('/', function () {
     return view('reservation');
 });
-// Route::post('/reservation', function () {
-//     return view('/');
-// });
+Route::get('/reservation', function () {
+    return view('reservation2');
+});

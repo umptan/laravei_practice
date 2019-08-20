@@ -1,6 +1,8 @@
 
 <div>
 <form action="/" method="POST">DATE</form>
-    start time <input type="date">~end time <input type="date">
+    date <input type="date">
+    <br>
+    start time <input type="time">~ end time <input type="time">
 </div>
 
