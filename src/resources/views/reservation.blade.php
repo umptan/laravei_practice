@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<form action="/reservation" method="get">
+<form action="/reservation" method="POST">
+    {{ csrf_field() }}
     <select name="hotel" size="1">
         <option value="A" selected>ホテルA</option>
         <option value="B">ホテルB</option>
@@ -13,15 +14,27 @@
 <div>
     <table class="table table-striped reservation-table">
         <thead>
-            <td>name</td>
-            <td>date</td>
-            <td>satart</td>
-            <td>end</td>
-            <td>cancel</td>
+            <td>ホテル</td>
+            <td>日時</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>取消</td>
         </thead>
         <tbody>
-            <tr>
-            </tr>
+            @foreach ($reservations as $reservation)
+                <tr>
+                <td>{{ $reservation->hotel_name }}</td>
+                <td>{{ $reservation->date }}</td>
+                <td>{{ $reservation->start }}</td>
+                <td>{{ $reservation->end }}</td>
+                <form action="/reservations/", method="POST">
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger" type="submit">
+                        <i class="fa fa-trash"></i>cancel
+                    </button>
+                </form>
+                </tr>
+            @endforeach
         </tbody>
 
     </table>
