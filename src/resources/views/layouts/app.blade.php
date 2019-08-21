@@ -7,11 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <nav class="reservation reservation-default">
-            予約システム
-        </nav>
-    </div>
+    <h1>予約システム</h1>
 
     @yield('content')
 
