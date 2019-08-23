@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>予約システム</h1>
+    <h1 align="center">予約システム</h1>
 
     @yield('content')
 

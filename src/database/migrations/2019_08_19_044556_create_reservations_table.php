@@ -13,11 +13,10 @@ class CreateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('reservations', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->timestamps();
         });
     }
 
@@ -28,8 +27,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('reservations');
     }
 }

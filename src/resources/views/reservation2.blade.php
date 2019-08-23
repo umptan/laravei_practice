@@ -13,6 +13,6 @@
     {{ csrf_field() }}
     <div style="display: inline-flex">
         <input type="submit" name="/reservations" value="予約">
-        <input type="button" value="キャンセル">
+        <input type="button" onclick="history.back()" value="キャンセル">
     </div>
 </form>
