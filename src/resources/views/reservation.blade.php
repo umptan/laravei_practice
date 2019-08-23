@@ -23,16 +23,18 @@
             <tbody>
                 @foreach ($reservations as $reservation)
                     <tr>
-                    <td>{{ $reservation->hotel_name }}</td>
-                    <td>{{ $reservation->date }}</td>
-                    <td>{{ $reservation->start }}</td>
-                    <td>{{ $reservation->end }}</td>
-                    <form action="/reservations/", method="POST">
-                        {{ csrf_field() }}
-                        <button class="btn btn-danger" type="submit">
-                            <i class="fa fa-trash"></i>取消
-                        </button>
-                    </form>
+                        <td>{{ $reservation->hotel_name }}</td>
+                        <td>{{ $reservation->date }}</td>
+                        <td>{{ $reservation->start }}</td>
+                        <td>{{ $reservation->end }}</td>
+                        <td>
+                            <form action="/reservations/", method="POST">
+                                {{ csrf_field() }}
+                                <button class="btn btn-danger" type="submit">
+                                    <i class="fa fa-trash"></i>取消
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

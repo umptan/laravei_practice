@@ -15,7 +15,7 @@ use App\Reservation;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $reservations = array();
+    $reservations = Reservation::orderBy('created_at','asc')->get();
     return view('reservation',['reservations'=> $reservations]);
 
 });

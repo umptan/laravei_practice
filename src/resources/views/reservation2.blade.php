@@ -1,14 +1,14 @@
 <form action="/reservations" method="POST">
-    <h1 id="hotel_name">
+    <h1 name="hotel_name" id="hotel_name">
         <?php
             $hotel = @$_POST['hotel'];
             print"ホテル".$hotel;
         ?>
     </h1>
-    date <input type="date" id="date">
+    date <input type="date" name="date" id="date">
     <div>
-        start time <input type="time" id="start">
-        ~ end time <input type="time" id="end">
+        start time <input type="time" name="start" id="start-time">
+        ~ end time <input type="time" name="end" id="end-time">
     </div>
     {{ csrf_field() }}
     <div style="display: inline-flex">
