@@ -3,24 +3,26 @@
 
     <form action="/reservation" method="POST">
         {{ csrf_field() }}
-        <select name="hotel" size="1">
+        <select name="hotel" size="1" style="font-size:30px">
             <option selected>ホテルA</option>
             <option>ホテルB</option>
             <option>ホテルC</option>
             <option>ホテルD</option>
         </select>
-        <input type="submit" value="予約">
+        <button class="btn btn-default btn-sm">予約</button>
     </form>
     <div>
-        <table class="table table-striped reservation-table">
+        <table class="table reservation-table">
             <thead>
-                <td>ホテル</td>
-                <td>&nbsp;</td>
-                <td>日時</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>取消</td>
+                <tr class="success">
+                    <td>ホテル</td>
+                    <td>&nbsp;</td>
+                    <td>日時</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>取消</td>
+                </tr>
             </thead>
             <tbody>
                 @foreach ($reservations as $reservation)
@@ -35,7 +37,7 @@
                             <form action="{{ url('reservations/'.$reservation->id) }}", method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button class="btn btn-danger" type="submit">
+                                <button class="btn btn-danger btn-sm" type="submit">
                                     <i class="fa fa-trash"></i>取消
                                 </button>
                             </form>
