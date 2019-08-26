@@ -1,10 +1,10 @@
 <form action="/reservations" method="POST">
-    <h1 name="hotel_name" id="hotel_name">
-        <?php
+    <input name="hotel_name" id="hotel_name"
+        value="<?php
             $hotel = @$_POST['hotel'];
-            print"ホテル".$hotel;
-        ?>
-    </h1>
+            print$hotel;
+        ?>"
+    >
     date <input type="date" name="date" id="date">
     <div>
         start time <input type="time" name="start" id="start-time">

@@ -15,7 +15,7 @@ use App\Reservation;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $reservations = Reservation::orderBy('created_at','asc')->get();
+    $reservations = Reservation::orderBy('date','asc')->get();
     return view('reservation',['reservations'=> $reservations]);
 
 });
@@ -48,5 +48,10 @@ Route::post('/reservations', function (Request $request) {
     $reservation->end = $request->end;
     $reservation->save();
 
+    return redirect('/');
+});
+
+Route::delete('/reservations/{reserve}', function (Reservation $reservation) {
+    $reservation->delete();
     return redirect('/');
 });
