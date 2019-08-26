@@ -51,7 +51,7 @@ Route::post('/reservations', function (Request $request) {
     return redirect('/');
 });
 
-Route::delete('/reservations/{reserve}', function (Reservation $reservation) {
+Route::delete('/reservations/{reservation}', function (Reservation $reservation) {
     $reservation->delete();
     return redirect('/');
 });

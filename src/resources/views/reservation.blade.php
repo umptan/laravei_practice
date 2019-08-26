@@ -32,8 +32,9 @@
                         <td>~</td>
                         <td>{{ $reservation->end }}</td>
                         <td>
-                            <form action="{{ url('/reservations/'.$reservation->id) }}", method="POST">
+                            <form action="{{ url('reservations/'.$reservation->id) }}", method="POST">
                                 {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
                                 <button class="btn btn-danger" type="submit">
                                     <i class="fa fa-trash"></i>取消
                                 </button>
