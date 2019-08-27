@@ -1,3 +1,4 @@
+@include('common.errors')
 @extends('layouts.app')
 @section('content')
     <form action="/reservation" method="POST">
