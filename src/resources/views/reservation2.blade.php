@@ -12,8 +12,9 @@
             ?>"
         >
     </div>
-    date <input type="date" name="date" style="font-size:25px">
-    <div>
+    <div style="line-height:3em">
+        date <input type="date" name="date" style="font-size:20px">
+        <br>
         start time <input type="time" name="start" step="1800" value="12:00" style="font-size:20px">
         ~ end time <input type="time" name="end" step="1800" value="13:00" style="font-size:20px">
     </div>

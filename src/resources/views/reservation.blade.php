@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <form action="/reservation" method="POST">
         {{ csrf_field() }}
         <select name="hotel" size="1" style="font-size:30px">
@@ -9,9 +8,9 @@
             <option>ホテルC</option>
             <option>ホテルD</option>
         </select>
-        <button class="btn btn-default btn-sm">予約</button>
+        <button class="btn btn-primary btn-sm">予約</button>
     </form>
-    <div>
+    <div class="panel panel-success">
         <table class="table reservation-table">
             <thead>
                 <tr class="success">
@@ -45,8 +44,6 @@
                     </tr>
                 @endforeach
             </tbody>
-
         </table>
     </div>
-
 @endsection
