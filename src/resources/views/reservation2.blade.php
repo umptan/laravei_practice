@@ -1,22 +1,19 @@
 @extends('layouts.app2')
-
 <form action="/reservations" method="POST">
     <div>
         <input name="hotel_name"
             style="font-size:50px"
             class="mark"
             size="200"
-            value="<?php
-                $hotel = @$_POST['hotel'];
-                print$hotel;
-            ?>"
+            value={{$hotel_name}}
+            readonly
         >
     </div>
     <div style="line-height:3em">
-        date <input type="date" name="date" style="font-size:20px">
-        <br>
-        start time <input type="time" name="start" step="1800" value="12:00" style="font-size:20px">
-        ~ end time <input type="time" name="end" step="1800" value="13:00" style="font-size:20px">
+        <label for="start_date">start date</label>
+        <input type="datetime-local" name="start_date" step="1800">
+        <label for="end_date">~ end date</label>
+        <input type="datetime-local" name="end_date" step="1800">
     </div>
     {{ csrf_field() }}
     <div class="pull-right">

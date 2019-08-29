@@ -20,7 +20,6 @@
                     <td>日時</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td>&nbsp;</td>
                     <td>取消</td>
                 </tr>
             </thead>
@@ -29,18 +28,22 @@
                     <tr>
                         <td>{{ $reservation->hotel_name }}</td>
                         <td>&nbsp;</td>
-                        <td>{{ $reservation->date }}</td>
-                        <td>{{ $reservation->start }}</td>
+                        <td>{{ $reservation->start_date }}</td>
                         <td>~</td>
-                        <td>{{ $reservation->end }}</td>
+                        <td>{{ $reservation->end_date }}</td>
                         <td>
-                            <form action="{{ url('reservations/'.$reservation->id) }}", method="POST">
+                            <form action="{{ url('reservations/'.$reservation->id) }}", method="POST" onSubmit="return startConfirm()">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button class="btn btn-danger btn-sm" type="submit">
+                                <button class="btn btn-danger btn-sm" type="submit" id="btn">
                                     <i class="fa fa-trash"></i>取消
                                 </button>
                             </form>
+                            <script>
+                                function startConfirm(){
+                                    return (confirm("本当によろしいですか？"));
+                                }
+                            </script>
                         </td>
                     </tr>
                 @endforeach

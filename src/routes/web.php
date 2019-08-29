@@ -15,7 +15,7 @@ use App\Reservation;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $reservations = Reservation::orderBy('date','asc')->get();
+    $reservations = Reservation::orderBy('start_date','asc')->get();
     return view('reservation',['reservations'=> $reservations]);
 
 });
@@ -26,26 +26,21 @@ Route::post('/reservation', function (Request $request) {
 
 Route::post('/reservations', function (Request $request) {
     $validator = Validator::make($request->all(), [
-        // TODO: 入力チェック条件
-        'date' => 'required',
-        'start' => 'required',
-        'end' => 'required',
+        'start_date' => 'required|after:today',
+        'end_date' => 'required|after:start_date',
     ]);
 
     if ($validator->fails()) {
-        // TODO: エラーのときの処理（tasklistを参考に）
         return redirect('/')
             ->withInput()
             ->withErrors($validator);
     };
 
-    // TODO: データベースに予約情報登録する処理(tasklistを参考に)
 
     $reservation = new Reservation;
     $reservation->hotel_name = $request->hotel_name;
-    $reservation->date = $request->date;
-    $reservation->start = $request->start;
-    $reservation->end = $request->end;
+    $reservation->start_date = $request->start_date;
+    $reservation->end_date = $request->end_date;
     $reservation->save();
 
     return redirect('/');
