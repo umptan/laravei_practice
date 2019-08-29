@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
+    <h1 align="center" class="mark">予約画面</h1>
 
-
-
+    @yield('content')
 
 
 

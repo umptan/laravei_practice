@@ -17,26 +17,23 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     $reservations = Reservation::orderBy('start_date','asc')->get();
     return view('reservation',['reservations'=> $reservations]);
-
 });
 
-Route::post('/reservation', function (Request $request) {
+Route::get('/reservation', function (Request $request) {
     return view('reservation2', ['hotel_name'=>$request->hotel]);
-});
+})->name('/reservation_name');
 
 Route::post('/reservations', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'start_date' => 'required|after:today',
         'end_date' => 'required|after:start_date',
     ]);
-
     if ($validator->fails()) {
-        return redirect('/')
+        return redirect()
+            ->route('/reservation_name', ['hotel'=>$request->hotel_name])
             ->withInput()
             ->withErrors($validator);
     };
-
-
     $reservation = new Reservation;
     $reservation->hotel_name = $request->hotel_name;
     $reservation->start_date = $request->start_date;
