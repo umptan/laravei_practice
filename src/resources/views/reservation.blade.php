@@ -34,19 +34,22 @@
                             <form action="{{ url('reservations/'.$reservation->id) }}", method="POST" onSubmit="return startConfirm()">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button class="btn btn-danger btn-sm" type="submit" id="btn">
+                                <button class="btn btn-danger btn-sm" type="submit">
                                     <i class="fa fa-trash"></i>取消
-                                </button>
-                            </form>
-                            <form action="", method="POST">
-                                <button class="btn btn-primary btn-sm" type="submit">
-                                    <i class="fa fa-cog"></i>編集
                                 </button>
                             </form>
                             <script>
                                 function startConfirm(){
                                     return (confirm("本当によろしいですか？"));
                                 }
+                            </script>
+
+                            <form action="/", method="POST">
+                                <button class="btn btn-primary btn-sm" type="button" onclick="reWrite(0)">
+                                    <i class="fa fa-cog"></i>編集
+                                </button>
+                            </form>
+                            <script>
                             </script>
                         </td>
                     </tr>
